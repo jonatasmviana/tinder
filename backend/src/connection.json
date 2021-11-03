@@ -1,0 +1,7 @@
+{
+  "port": 3333,
+  "user": "user",
+  "pass": "pass",
+  "cluster": "cluster",
+  "baseName": "baseName"
+}
