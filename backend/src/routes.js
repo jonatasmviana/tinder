@@ -3,6 +3,7 @@ const DevController = require('./controllers/DevController');
 const LikeController = require('./controllers/LikeController');
 const DislikeController = require('./controllers/DislikeController');
 
+routes.get('/dev/:devId', DevController.getLoggedDev);
 routes.get('/devs', DevController.getDevByUserName);
 routes.get('/devs/todos', DevController.getAllDevs);
 routes.get('/devs/:devId', DevController.getDevById);

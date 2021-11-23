@@ -2,10 +2,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const routes = require('./routes');
-const server = express();
-server.use(cors());
-server.use(express.json());
-server.use(routes);
+
+const httpServer = express();
+httpServer.use(cors());
+httpServer.use(express.json());
+httpServer.use(routes);
+
+const server = require('http').Server(httpServer);
+const io = require('socket.io')(server);
+
+// io.on('connection', socket => {
+	
+// })
 
 const authConfig = require('./connection.json');
 const urlConnect = 'mongodb+srv://'
@@ -22,4 +30,4 @@ mongoose.connect(urlConnect, {
 	useUnifiedTopology: true
 });
 
-server.listen(authConfig.port);
+httpServer.listen(authConfig.port);

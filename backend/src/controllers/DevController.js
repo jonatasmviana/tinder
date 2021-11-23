@@ -3,6 +3,12 @@ const Dev = require('../models/Dev');
 
 module.exports = {
 
+	async getLoggedDev(req, res) {
+		const { devId } = req.params;
+		const loggedDev = await Dev.findById(devId);
+		return res.json(loggedDev);
+	},
+
 	async getDevByUserName(req, res) {
 		const { user } = req.headers;
 		const loggedDev = await Dev.findOne({ user });
