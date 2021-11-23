@@ -13,13 +13,13 @@ This project's goal is to simulates the Tinder app with the objective of study. 
 ### REACTJS / VUE LIKES/DISLIKE PAGE
 ![Alt text](read_me_images/reactjs-page-likes-dislikes.png?raw=true "Page Likes/Dislikes")
 
-
+##
 
 ### REACT NATIVE LOGIN PAGE
 ![Alt text](read_me_images/react-native-login.png?raw=true "Login")
-
+##
 ### REACT NATIVE LOGIN PAGE USER
 ![Alt text](read_me_images/react-native-login-user.png?raw=true "Login User")
-
+##
 ### REACT NATIVE LIKES/DISLIKE PAGE 1
 ![Alt text](read_me_images/react-native-page-likes-dislikes-1.png?raw=true "Page Likes/Dislikes 1")
