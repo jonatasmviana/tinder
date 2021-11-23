@@ -3,12 +3,13 @@ O objectivo deste projeto é de simular o app do Tinder com finalidade de estudo
 
 This project's goal is to simulates the Tinder app with the objective of study. The technologies used were Node, ReactJS, and React Native, with MongoDB
 
+##
 ### REACTJS / VUE LOGIN PAGE
 ![Alt text](read_me_images/reactjs-login.png?raw=true "Login")
-
+##
 ### REACTJS / VUE LOGIN PAGE USER
 ![Alt text](read_me_images/reactjs-login-user.png?raw=true "Login User")
-
+##
 ### REACTJS / VUE LIKES/DISLIKE PAGE
 ![Alt text](read_me_images/reactjs-page-likes-dislikes.png?raw=true "Page Likes/Dislikes")
 
