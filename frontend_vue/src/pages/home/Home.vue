@@ -77,12 +77,12 @@
 </template>
 
 <script>
-import logo from "../../assets/logo.svg";
-import like from "../../assets/like.svg";
-import dislike from "../../assets/dislike.svg";
+import logo from "@/assets/logo.svg";
+import like from "@/assets/like.svg";
+import dislike from "@/assets/dislike.svg";
 
 export default {
-  name: "Main",
+  name: "Home",
   data: () => {
     return {
       logo: logo,
@@ -94,5 +94,5 @@ export default {
 </script>
 
 <style scoped>
-@import "./Main.css";
+@import "./Home.css";
 </style>

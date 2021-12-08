@@ -1,20 +1,12 @@
 <template>
   <div id="app">
-    <!-- <Login /> -->
-    <Main />
+    <router-view path="$router.key" />
   </div>
 </template>
 
 <script>
-// import Login from "./components/login/Login.vue";
-import Main from "./components/main/Main.vue";
-
 export default {
   name: "App",
-  components: {
-    // Login,
-    Main,
-  },
 };
 </script>
 
