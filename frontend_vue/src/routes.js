@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Login from '@/pages/login/Login';
 import Home from '@/pages/home/Home';
+import checkInvalidToken from "./services/token.js";
 
 Vue.use(VueRouter);
 
@@ -31,11 +32,20 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	const currentDevId = localStorage.getItem('currentDevId');
-	const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
 
-	if (requiresAuth && !currentDevId) {
-		next('login');
+	const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+	if (requiresAuth) {
+
+		const lsKey = localStorage.getItem("key");
+		if (!lsKey) {
+			next(to.path !== '/login' ? '/login' : undefined);
+			return;
+		}
+
+    if (checkInvalidToken()) {
+			next('login');
+      return;
+    }
 	}
 
 	next();

@@ -18,8 +18,10 @@
 </template>
 
 <script>
+import moment from "moment";
 import logo from "@/assets/logo.svg";
 import service from "../../services/api.js";
+import checkInvalidToken from "../../services/token.js";
 
 export default {
   name: "Login",
@@ -30,23 +32,31 @@ export default {
     };
   },
   mounted: async function () {
-    const currentDevId = localStorage.getItem("currentDevId");
-    if (!currentDevId) {
+    const lsKey = localStorage.getItem("key");
+    if (!lsKey) {
       return;
     }
 
-    const response = await service.getDevById(currentDevId);
+    if (checkInvalidToken()) {
+      return;
+    }
+
+    const currentDev = JSON.parse(lsKey);
+    const response = await service.getDevById(currentDev.val);
     if (!response.data?._id) {
       return;
     }
 
-    this.$router.push({ path: `/dev/${currentDevId}` });
+    this.$router.push({ path: `/dev/${currentDev.val}` });
   },
   methods: {
     handleSubmit: async function () {
       const response = await service.authenticate(this.user.trim());
       const { _id } = response.data;
-      localStorage.setItem("currentDevId", _id);
+
+      const object = { val: _id, dt: moment(new Date()) };
+      localStorage.setItem("key", JSON.stringify(object));
+
       this.$router.push({ path: `/dev/${_id}` });
     },
   },
